@@ -13,13 +13,18 @@ export const signIn = async (values, history) => {
 };
 
 export const signUp = async (values, history) => {
-  const res = await axios.post((`${BASE_URL}/users/create`, values));
+  const res = await axios.post(`${BASE_URL}/users/create`, {
+    firstName: values.name,
+    lastName: values.lastName,
+    email: values.email,
+    password: values.password,
+  });
   const { data } = res;
 
   if (data) {
     const json = JSON.stringify([data]);
     localStorage.setItem('app-token', json);
-    history.push('/home');
+    history.push('/login');
   }
 };
 

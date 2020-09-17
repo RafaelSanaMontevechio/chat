@@ -36,7 +36,7 @@ export default {
       }));
       if (!validation.success) return res.status(400).json({ ...validation });
 
-      const { firstName, lastName, email, password, type } = req.body;
+      const { firstName, lastName, email, password } = req.body;
       const user = await UserModel.createUser(
         firstName,
         lastName,
@@ -46,6 +46,7 @@ export default {
       user.password = undefined;
       return res.status(200).json({ success: true, user });
     } catch (error) {
+      console.log(error);
       return res.status(500).json({ success: false, error: error });
     }
   },
