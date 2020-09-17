@@ -23,6 +23,7 @@ const HomeChat = ({ user, data, currencyContact }) => {
 
   useEffect(() => {
     async function fetchData() {
+      updateMessages([]);
       const result = await getConversationByRoomId(data);
       updateMessages(result.conversation);
     }
@@ -57,12 +58,15 @@ const HomeChat = ({ user, data, currencyContact }) => {
 
   const showmMessage = (message) => {
     return (
-      <li
-        className={`list__item list__item--${
+      <div
+        key={message.messageId}
+        className={`container--${
           message.postedByUserId === user._id ? 'mine' : 'other'
         }`}
-        key={message.messageId}
       >
+        {message.postedByUserId !== user._id ? (
+          <span className="sender">{message.postedByUserName}</span>
+        ) : null}
         <span
           className={`message message--${
             message.postedByUserId === user._id ? 'mine' : 'other'
@@ -70,7 +74,7 @@ const HomeChat = ({ user, data, currencyContact }) => {
         >
           {message.message}
         </span>
-      </li>
+      </div>
     );
   };
 
@@ -85,9 +89,7 @@ const HomeChat = ({ user, data, currencyContact }) => {
           </div>
           <div className="messages-home-chat">
             <ScrollToBottom className="messages">
-              <ul className="list">
-                {!messages ? <span> aguarde</span> : messages.map(showmMessage)}
-              </ul>
+              {!messages ? <span> aguarde</span> : messages.map(showmMessage)}
             </ScrollToBottom>
           </div>
           <div className="input-home-chat">

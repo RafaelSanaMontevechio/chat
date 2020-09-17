@@ -1,4 +1,4 @@
-home-chat-container {
+.home-chat-container {
   width: 100%;
 }
 
@@ -105,15 +105,38 @@ home-chat-container {
   text-align: right;
 }
 
+/* --- styles --*/
+.container--mine {
+  border: 1px solid transparent;
+  width: 50%;
+  float: right;
+  margin-right: 1.5rem;
+}
+
+.container--other {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5rem;
+}
+
 .message.message--mine {
+  border: 1px solid black;
   background: #c3e88d;
   border-color: #82be27;
-  border-radius: 5px;
-  text-align: right;
+  border-radius: 7px 0 7px 7px;
+  float: right;
 }
 
 .message.message--other {
+  border: 1px solid black;
+  width: fit-content;
   background: #89ddff;
   border-color: #1abeff;
-  border-radius: 5px;
+  border-radius: 0 7px 7px 7px;
+}
+
+.sender {
+  font-size: 0.8rem;
+  color: #95a5a6;
 }
