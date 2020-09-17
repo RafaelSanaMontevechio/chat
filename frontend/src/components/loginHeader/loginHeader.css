@@ -1,0 +1,36 @@
+.login-header {
+  margin-top: 13%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.login-options {
+  width: 32%;
+  padding: 10px;
+  display: flex;
+}
+
+.login-options span {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 18px;
+  border-bottom: 3px solid transparent;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.active {
+  cursor: pointer;
+  border-bottom: 3px solid #00cc99;
+  text-decoration: none;
+  color: #fff;
+}
+
+.mf-5 {
+  margin-left: 5%;
+}

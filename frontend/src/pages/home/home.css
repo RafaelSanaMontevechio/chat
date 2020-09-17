@@ -1,0 +1,40 @@
+.home-container {
+  display: flex;
+  background: #fff;
+}
+
+.home-details {
+  border-right: 1px solid #b2bec3;
+  width: 22%;
+  height: 95vh;
+  background: #f0f4f8;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-search {
+  border: 0.3px solid #b2bec3;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 0.5rem;
+  width: 95%;
+  height: 2rem;
+  background: #fff;
+}
+
+.btn-search:hover {
+  cursor: pointer;
+}
+
+.div-btn-search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.home-chats {
+  width: 78%;
+  height: 95vh;
+}

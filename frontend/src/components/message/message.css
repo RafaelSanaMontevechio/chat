@@ -1,0 +1,41 @@
+.message {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.messages {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 78%;
+  padding: 5% 0;
+  overflow: auto;
+  flex: auto;
+}
+
+.list {
+  margin: 0;
+  padding: 1rem;
+}
+
+.list__item {
+  list-style: none;
+}
+
+.list__item.list__item--mine {
+  text-align: right;
+}
+
+.message.message--mine {
+  background: #c3e88d;
+  border-color: #82be27;
+  border-radius: 5px;
+  text-align: right;
+}
+
+.message.message--other {
+  background: #89ddff;
+  border-color: #1abeff;
+  border-radius: 5px;
+}
