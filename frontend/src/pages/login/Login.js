@@ -15,7 +15,6 @@ const Login = () => {
   const history = useHistory();
 
   const handleSubmit = (values) => {
-    console.log(values);
     signIn(values, history);
   };
 

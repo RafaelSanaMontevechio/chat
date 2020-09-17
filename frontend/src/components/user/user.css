@@ -35,3 +35,7 @@
 .options button:hover {
   cursor: pointer;
 }
+
+.logout {
+  color: red;
+}

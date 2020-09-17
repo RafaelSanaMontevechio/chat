@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Avatar from '@material-ui/core/Avatar';
-import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import MenuIcon from '@material-ui/icons/Menu';
 
 import { signOut } from '../../api/user';
 
@@ -47,7 +47,9 @@ const User = ({ user }) => {
           >
             <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={() => signOut(history)}>Logout</MenuItem>
+            <MenuItem onClick={() => signOut(history)}>
+              <span className="logout">Logout</span>
+            </MenuItem>
           </Menu>
         </div>
       </div>

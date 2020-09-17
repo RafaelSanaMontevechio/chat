@@ -31,6 +31,10 @@
   outline: none;
 }
 
+.search-btn:hover {
+  cursor: pointer;
+}
+
 .result-btn {
   margin-top: 1rem;
   width: 100%;
