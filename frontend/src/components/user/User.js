@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useRef } from 'react';
+import { useHistory, NavLink } from 'react-router-dom';
+import Divider from '@material-ui/core/Divider';
 
 import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
@@ -13,6 +14,7 @@ import './user.css';
 const User = ({ user }) => {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
+  const ref = useRef(<Menu />);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -39,6 +41,7 @@ const User = ({ user }) => {
             <MenuIcon />
           </button>
           <Menu
+            ref={ref}
             id="simple-menu"
             anchorEl={anchorEl}
             keepMounted
@@ -46,7 +49,16 @@ const User = ({ user }) => {
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>
+              <NavLink
+                className="account"
+                activeClassName="active"
+                to="/user/account"
+              >
+                My account
+              </NavLink>
+            </MenuItem>
+            <Divider variant="middle" />
             <MenuItem onClick={() => signOut(history)}>
               <span className="logout">Logout</span>
             </MenuItem>

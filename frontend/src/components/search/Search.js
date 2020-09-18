@@ -25,7 +25,10 @@ const Search = ({ handleClick }) => {
       <button
         key={user._id}
         className="result-btn"
-        onClick={() => initiateChat(user._id)}
+        onClick={() => {
+          initiateChat(user._id);
+          handleClick();
+        }}
       >
         <div className="result">
           <Avatar className="ml-10">BL</Avatar>

@@ -36,6 +36,11 @@
   cursor: pointer;
 }
 
+.account {
+  text-decoration: none;
+  color: #000000;
+}
+
 .logout {
   color: red;
 }
