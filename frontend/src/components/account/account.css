@@ -1,0 +1,43 @@
+.account {
+  padding: 1rem;
+}
+
+.account__header {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+}
+
+.account__header--btn {
+  outline: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  text-decoration: none;
+}
+
+.account__header--btn_focus {
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #00cc99;
+  background: transparent;
+  text-decoration: none;
+}
+
+.account__header button:hover {
+  cursor: pointer;
+}
+
+.account__header span {
+  color: #7158e2;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 18px;
+  border-bottom: 3px solid transparent;
+}
+
+.mf-15 {
+  margin-left: 15px;
+}

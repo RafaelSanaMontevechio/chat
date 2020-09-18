@@ -8,6 +8,7 @@ import User from '../../components/user';
 import Room from '../../components/room';
 import Search from '../../components/search';
 import HomeChat from '../../components/homeChat';
+import Account from '../../components/account';
 import Footer from '../../components/footer';
 
 import './home.css';
@@ -15,6 +16,7 @@ import './home.css';
 const Home = () => {
   const [user, setUser] = useState([]);
   const [show, setShow] = useState(false);
+  const [showAccountComponent, setShowAccountConponent] = useState(false);
   const [roomId, setRoomId] = useState('');
   const [contact, setContact] = useState('');
 
@@ -31,6 +33,14 @@ const Home = () => {
     }
   };
 
+  const showAccount = () => {
+    if (showAccountComponent === false) {
+      setShowAccountConponent(true);
+    } else {
+      setShowAccountConponent(false);
+    }
+  };
+
   const getRoomId = (roomId, contact) => {
     setRoomId(roomId);
     setContact(contact);
@@ -40,8 +50,7 @@ const Home = () => {
     <>
       <div className="home-container">
         <div className="home-details">
-          <User user={user} />
-
+          <User user={user} showAccount={showAccount} />
           {!show ? (
             <button className="btn-search" type="input" onClick={showSearch}>
               <div className="div-btn-search">
@@ -57,7 +66,11 @@ const Home = () => {
           )}
         </div>
         <div className="home-chats">
-          <HomeChat user={user} data={roomId} currencyContact={contact} />
+          {!showAccountComponent ? (
+            <HomeChat user={user} data={roomId} currencyContact={contact} />
+          ) : (
+            <Account />
+          )}
         </div>
       </div>
       <Footer />

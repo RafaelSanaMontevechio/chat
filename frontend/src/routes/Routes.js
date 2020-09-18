@@ -6,6 +6,7 @@ import NotFound from '../pages/notFound';
 import Login from '../pages/login';
 import Register from '../pages/register';
 import Home from '../pages/home';
+import Account from '../components/account';
 
 const Routes = () => (
   <BrowserRouter>
