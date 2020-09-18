@@ -37,7 +37,7 @@ const HomeChat = ({ user, data, currencyContact }) => {
     };
     socket.on('send-message', handleNewMessage);
     return () => socket.off('send-message', handleNewMessage);
-  }, [messages]);
+  }, [messages, data]);
 
   const handleFormSubmit = async (event, { resetForm }) => {
     const messageId = uuid();
