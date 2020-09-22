@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Avatar from '@material-ui/core/Avatar';
+
+import UserAvatar from '../avatar';
 
 import { getRooms } from '../../api/room';
 
@@ -17,24 +18,15 @@ const Room = ({ func }) => {
     fetchData();
   }, []);
 
-  console.log(result);
-
   const renderizaLinha = (element) => {
     return (
       <button
         key={element.roomId}
         className="result-btn"
-        onClick={() => func(element.roomId, element.contact)}
+        onClick={() => func(element.roomId, element.contact, element.image)}
       >
         <div className="result">
-          {!element.image ? (
-            <Avatar className="ml-10">{element.contact.substr(0, 1)}</Avatar>
-          ) : (
-            <Avatar
-              src={`data:${element.image.type};base64,${element.image.base64}`}
-            />
-          )}
-          <span className="ml-10">{element.contact}</span>
+          <UserAvatar userName={element.contact} image={element.image} />
         </div>
       </button>
     );

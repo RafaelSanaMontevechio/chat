@@ -17,7 +17,7 @@ import './homeChat.css';
 
 const socket = io('http://localhost:3001');
 
-const HomeChat = ({ user, data, currencyContact }) => {
+const HomeChat = ({ data, user, contactName, contactImage }) => {
   socket.emit('join', user._id);
   const [messages, updateMessages] = useState([]);
 
@@ -85,7 +85,7 @@ const HomeChat = ({ user, data, currencyContact }) => {
       ) : (
         <>
           <div className="header-home-chat">
-            <HeaderChat currencyContact={currencyContact} />
+            <HeaderChat contactName={contactName} contactImage={contactImage} />
           </div>
           <div className="messages-home-chat">
             <ScrollToBottom className="messages">

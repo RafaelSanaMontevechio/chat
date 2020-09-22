@@ -15,14 +15,17 @@ import './home.css';
 
 const Home = () => {
   const [user, setUser] = useState([]);
+  const [image, setImage] = useState([]);
   const [show, setShow] = useState(false);
   const [showAccountComponent, setShowAccountConponent] = useState(false);
   const [roomId, setRoomId] = useState('');
   const [contact, setContact] = useState('');
+  const [contactImage, setContactImage] = useState({});
 
   useEffect(() => {
     const data = getUserLocalStorage();
     setUser(data[0].user);
+    setImage(data[0].img);
   }, []);
 
   const showSearch = () => {
@@ -41,16 +44,17 @@ const Home = () => {
     }
   };
 
-  const getRoomId = (roomId, contact) => {
+  const getRoomId = (roomId, contact, image) => {
     setRoomId(roomId);
     setContact(contact);
+    setContactImage(image);
   };
 
   return (
     <>
       <div className="home-container">
         <div className="home-details">
-          <User user={user} showAccount={showAccount} />
+          <User user={user} image={image} showAccount={showAccount} />
           {!show ? (
             <button className="btn-search" type="input" onClick={showSearch}>
               <div className="div-btn-search">
@@ -62,12 +66,17 @@ const Home = () => {
           {show ? (
             <Search handleClick={showSearch} />
           ) : (
-            <Room func={getRoomId} />
+            <Room user={user} image={image} func={getRoomId} />
           )}
         </div>
         <div className="home-chats">
           {!showAccountComponent ? (
-            <HomeChat user={user} data={roomId} currencyContact={contact} />
+            <HomeChat
+              data={roomId}
+              user={user}
+              contactName={contact}
+              contactImage={contactImage}
+            />
           ) : (
             <Account user={user} />
           )}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
 import CloseIcon from '@material-ui/icons/Close';
-import Avatar from '@material-ui/core/Avatar';
 
 import { getUsersByName } from '../../api/user';
 import { initiateChat } from '../../api/room';
+
+import UserAvatar from '../avatar';
 
 import './search.css';
 
@@ -23,7 +24,7 @@ const Search = ({ handleClick }) => {
   const renderizaLinha = (user) => {
     return (
       <button
-        key={user._id}
+        key={user.user._id}
         className="result-btn"
         onClick={() => {
           initiateChat(user._id);
@@ -31,8 +32,7 @@ const Search = ({ handleClick }) => {
         }}
       >
         <div className="result">
-          <Avatar className="ml-10">BL</Avatar>
-          <span className="ml-10">{user.firstName}</span>
+          <UserAvatar userName={user.user.firstName} image={user.img} />
         </div>
       </button>
     );

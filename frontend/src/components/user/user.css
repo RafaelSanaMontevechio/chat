@@ -7,17 +7,6 @@
   /* border-bottom: 1px solid #b2bec3; */
 }
 
-.user {
-  width: 70%;
-  padding: 4px;
-  align-items: center;
-  display: flex;
-}
-
-.user span {
-  margin-left: 0.8rem;
-}
-
 .options {
   width: 30%;
   display: flex;

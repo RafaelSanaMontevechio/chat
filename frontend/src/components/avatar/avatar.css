@@ -1,0 +1,10 @@
+.avatar {
+  width: 70%;
+  padding: 4px;
+  align-items: center;
+  display: flex;
+}
+
+.avatar span {
+  margin-left: 0.8rem;
+}

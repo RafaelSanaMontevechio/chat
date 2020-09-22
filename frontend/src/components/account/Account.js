@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Divider from '@material-ui/core/Divider';
 
-import { uploadImage, getImage } from '../../api/user';
+import { uploadImage } from '../../api/user';
 
 import './account.css';
 
