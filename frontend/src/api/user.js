@@ -33,6 +33,24 @@ export const signOut = (history) => {
   history.push('/login');
 };
 
+export const uploadImage = async (userId, file) => {
+  let formData = new FormData();
+  formData.append('userId', userId);
+  formData.append('image', file);
+
+  await axios.post(`${BASE_URL}/users/upload-image`, formData, {
+    headers: {
+      'content-Type': 'multipart/form-data',
+    },
+  });
+};
+
+export const getImage = async (userId) => {
+  const res = await axios.get(`${BASE_URL}/users/get-image/${userId}`);
+  // console.log(res.data);
+  return res.data;
+};
+
 export const getUserLocalStorage = () => {
   const data = localStorage.getItem('app-token');
   return JSON.parse(data);

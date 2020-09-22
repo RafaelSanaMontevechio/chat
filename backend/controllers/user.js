@@ -1,6 +1,8 @@
 import makeValidation from '@withvoid/make-validation';
 import UserModel from '../models/User.js';
 import bcrypt from 'bcrypt';
+// import fs from 'fs';
+// import path from 'path';
 
 export default {
   onUserLogin: async (req, res) => {
@@ -50,6 +52,21 @@ export default {
       return res.status(500).json({ success: false, error: error });
     }
   },
+
+  // onSaveImage: async (req, res) => {
+  //   try {
+  //     console.log('Body', req.body);
+  //     let img = {
+  //       data: fs.readFileSync(path.join(`uploads/${req.file.filename}`)),
+  //       contentType: req.file.mimetype,
+  //     };
+  //     const resp = await UserModel.saveImage(img);
+
+  //     console.log(resp);
+  //   } catch (error) {
+  //     return res.status(500).json({ success: false, error: error });
+  //   }
+  // },
 
   onGetUserByName: async (req, res) => {
     try {

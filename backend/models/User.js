@@ -4,10 +4,10 @@ import bcrypt from 'bcrypt';
 
 const userSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: () => uuidv4().replace(/\-/g, ''),
-    },
+    // _id: {
+    //   type: String,
+    //   default: () => uuidv4().replace(/\-/g, ''),
+    // },
     firstName: String,
     lastName: String,
     email: {
@@ -52,6 +52,19 @@ userSchema.statics.createUser = async function (
     throw error;
   }
 };
+
+// userSchema.statics.saveImage = async function (img) {
+//   try {
+//     const resp = await this.updateOne(
+//       { _id: '80889434ad304a2fa2c78271c3807868' },
+//       { $set: { image: img } }
+//     );
+//     return resp;
+//   } catch (error) {
+//     console.log(error);
+//     throw error;
+//   }
+// };
 
 userSchema.statics.getUserByEmail = async function (email) {
   try {

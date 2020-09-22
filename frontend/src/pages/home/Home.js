@@ -69,7 +69,7 @@ const Home = () => {
           {!showAccountComponent ? (
             <HomeChat user={user} data={roomId} currencyContact={contact} />
           ) : (
-            <Account />
+            <Account user={user} />
           )}
         </div>
       </div>

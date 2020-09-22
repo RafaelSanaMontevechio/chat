@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Divider from '@material-ui/core/Divider';
@@ -7,13 +7,25 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import { signOut } from '../../api/user';
+import { signOut, getImage } from '../../api/user';
 
 import './user.css';
 
 const User = ({ user, showAccount }) => {
   const history = useHistory();
+  const [image, setImage] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      if (user._id) {
+        const result = await getImage(user._id);
+        setImage(result.img);
+        // console.log(result.img);
+      }
+    }
+    fetchData();
+  }, [user._id]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -32,7 +44,7 @@ const User = ({ user, showAccount }) => {
     <>
       <div className="user-container">
         <div className="user">
-          <Avatar>US</Avatar>
+          <Avatar src={`data:${image.contentType};base64,${image.base64}`} />
           <span>{user.firstName}</span>
         </div>
         <div className="options">
