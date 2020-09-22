@@ -1,5 +1,7 @@
 import makeValidation from '@withvoid/make-validation';
+
 import UserModel from '../models/User.js';
+import ImageModel from '../models/Image.js';
 import ChatRoomModel from '../models/ChatRoom.js';
 import ChatMessageModel from '../models/ChatMessage.js';
 
@@ -65,17 +67,24 @@ export default {
           message: 'No rooms exists for this user id',
         });
       }
-
       rooms.forEach((element) => {
         element.userIds.splice(element.userIds.indexOf(userId), 1);
       });
 
       for (let i = 0; i < rooms.length; i++) {
         const user = await UserModel.getUserByIds(rooms[i].userIds);
+        const image = await ImageModel.getImage(rooms[i].userIds);
+
         if (rooms[i].usersIds === user._id) {
+          const emBase64 = image.data.toString('base64');
+          let img = {
+            base64: emBase64,
+            type: image.contentType,
+          };
           let room = {
             roomId: rooms[i]._id,
             contact: user[0].firstName,
+            image: img,
           };
           myRooms.push(room);
         }
@@ -84,6 +93,7 @@ export default {
         myRooms,
       });
     } catch (error) {
+      console.log(error);
       return res.status(500).json({ success: false, error });
     }
   },

@@ -21,7 +21,6 @@ const User = ({ user, showAccount }) => {
       if (user._id) {
         const result = await getImage(user._id);
         setImage(result.img);
-        // console.log(result.img);
       }
     }
     fetchData();

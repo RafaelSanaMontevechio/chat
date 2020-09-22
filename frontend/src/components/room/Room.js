@@ -17,6 +17,8 @@ const Room = ({ func }) => {
     fetchData();
   }, []);
 
+  console.log(result);
+
   const renderizaLinha = (element) => {
     return (
       <button
@@ -25,7 +27,13 @@ const Room = ({ func }) => {
         onClick={() => func(element.roomId, element.contact)}
       >
         <div className="result">
-          <Avatar className="ml-10">{element.contact.substr(0, 1)}</Avatar>
+          {!element.image ? (
+            <Avatar className="ml-10">{element.contact.substr(0, 1)}</Avatar>
+          ) : (
+            <Avatar
+              src={`data:${element.image.type};base64,${element.image.base64}`}
+            />
+          )}
           <span className="ml-10">{element.contact}</span>
         </div>
       </button>
