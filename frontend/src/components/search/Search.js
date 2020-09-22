@@ -27,7 +27,7 @@ const Search = ({ handleClick }) => {
         key={user.user._id}
         className="result-btn"
         onClick={() => {
-          initiateChat(user._id);
+          initiateChat(user.user._id);
           handleClick();
         }}
       >

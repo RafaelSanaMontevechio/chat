@@ -4,6 +4,7 @@ const BASE_URL = 'http://localhost:3001';
 
 export const signIn = async (values, history) => {
   const res = await axios.post(`${BASE_URL}/login`, values);
+  console.log(res);
   const { data } = res;
   if (data) {
     const json = JSON.stringify([data]);

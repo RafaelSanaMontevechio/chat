@@ -12,13 +12,23 @@ export default {
       if (!(await bcrypt.compare(password, user.password)))
         return res.status(400).send({ error: 'Invalid password' });
 
+      user.password = undefined;
+
       const image = await ImageModel.getImage(user._id);
+
+      if (!image) {
+        return res.send({
+          user,
+          img: null,
+          authorization: req.authToken,
+        });
+      }
       const emBase64 = image.data.toString('base64');
       let img = {
         base64: emBase64,
         type: image.contentType,
       };
-      user.password = undefined;
+
       res.send({
         user,
         img,

@@ -10,6 +10,7 @@ const getToken = () => {
 };
 
 export const initiateChat = async (contactId) => {
+  console.log(contactId);
   const token = getToken();
   await axios.post(
     `${BASE_URL}/room/initiate`,
