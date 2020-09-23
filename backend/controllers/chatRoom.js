@@ -74,13 +74,15 @@ export default {
       for (let i = 0; i < rooms.length; i++) {
         const user = await UserModel.getUserByIds(rooms[i].userIds);
         const image = await ImageModel.getImage(rooms[i].userIds);
-
         if (rooms[i].usersIds === user._id) {
-          const emBase64 = image.data.toString('base64');
-          let img = {
-            base64: emBase64,
-            type: image.contentType,
-          };
+          let img = null;
+          if (image) {
+            const emBase64 = image.data.toString('base64');
+            img = {
+              base64: emBase64,
+              type: image.contentType,
+            };
+          }
           let room = {
             roomId: rooms[i]._id,
             contact: user[0].firstName,
@@ -97,6 +99,7 @@ export default {
       return res.status(500).json({ success: false, error });
     }
   },
+
   getConversationByRoomId: async (req, res) => {
     try {
       const { roomId } = req.params;
