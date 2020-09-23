@@ -76,11 +76,16 @@ export default {
 
       for (let user of resp) {
         const image = await ImageModel.getImage(user._id);
-        const emBase64 = image.data.toString('base64');
-        let img = {
-          base64: emBase64,
-          type: image.contentType,
-        };
+        let img = null;
+
+        if (image) {
+          const emBase64 = image.data.toString('base64');
+          img = {
+            base64: emBase64,
+            type: image.contentType,
+          };
+        }
+
         let contact = {
           user,
           img,
@@ -89,6 +94,7 @@ export default {
       }
       return res.status(200).json({ success: true, users });
     } catch (error) {
+      console.log(error);
       return res.status(500).json({ success: false, error: error });
     }
   },
