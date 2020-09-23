@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import ScrollToBottom from 'react-scroll-to-bottom';
+
 import UserAvatar from '../avatar';
 
 import { getRooms } from '../../api/room';
@@ -35,7 +37,9 @@ const Room = ({ func }) => {
   return (
     <div className="room-container">
       <span className="span">Chats recentes</span>
-      <div className="">{result.map(renderizaLinha)}</div>
+      <ScrollToBottom className="rooms__actives">
+        {result.map(renderizaLinha)}
+      </ScrollToBottom>
     </div>
   );
 };
