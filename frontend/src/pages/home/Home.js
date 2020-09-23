@@ -46,6 +46,10 @@ const Home = () => {
     }
   };
 
+  const setDataNull = () => {
+    setRoomId('');
+  };
+
   const getRoomId = (roomId, contact, image) => {
     setRoomId(roomId);
     setContact(contact);
@@ -59,7 +63,7 @@ const Home = () => {
           <User user={user} image={image} showAccount={showAccount} />
           {!show ? (
             <div className="buttons">
-              <button className="buttons__btn">
+              <button className="buttons__btn" onClick={setDataNull}>
                 <HomeRoundedIcon className="icons" />
               </button>
               <button
