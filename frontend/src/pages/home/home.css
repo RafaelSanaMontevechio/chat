@@ -1,27 +1,40 @@
 .home-container {
   display: flex;
-  background: #fff;
+  background: #eceff1;
 }
 
 .home-details {
   border-right: 1px solid #b2bec3;
   width: 22%;
   height: 95vh;
-  background: #f0f4f8;
-  float: left;
+  background: #212121;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  color: #fff;
+}
+.buttons {
+  border-top: 1px solid #b2bec3;
+  border-bottom: 1px solid #b2bec3;
+  padding: 0.5rem 0 0.4rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: #1e272e;
 }
 
-.btn-search {
-  border: 0.3px solid #b2bec3;
-  border-radius: 5px;
+.buttons__btn {
+  border: none;
   outline: none;
-  margin-top: 0.5rem;
-  width: 95%;
-  height: 2rem;
-  background: #fff;
+  background: transparent;
+}
+
+.icons {
+  color: #fff;
+}
+
+.icons:hover {
+  color: #7158e2;
 }
 
 .btn-search:hover {

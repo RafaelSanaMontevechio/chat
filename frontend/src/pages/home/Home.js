@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchIcon from '@material-ui/icons/Search';
+import GroupAddRoundedIcon from '@material-ui/icons/GroupAddRounded';
+import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 
 import { getUserLocalStorage } from '../../api/user';
 
@@ -56,11 +58,21 @@ const Home = () => {
         <div className="home-details">
           <User user={user} image={image} showAccount={showAccount} />
           {!show ? (
-            <button className="btn-search" type="input" onClick={showSearch}>
-              <div className="div-btn-search">
-                <SearchIcon onClick={showSearch} /> <span>Find people</span>
-              </div>
-            </button>
+            <div className="buttons">
+              <button className="buttons__btn">
+                <HomeRoundedIcon className="icons" />
+              </button>
+              <button
+                className="buttons__btn"
+                type="input"
+                onClick={showSearch}
+              >
+                <SearchIcon className="icons" />
+              </button>
+              <button className="buttons__btn">
+                <GroupAddRoundedIcon className="icons" />
+              </button>
+            </div>
           ) : null}
 
           {show ? (

@@ -1,17 +1,23 @@
 .user-container {
   width: 100%;
-  height: 5vh;
-  padding: 1rem 0 1rem 0;
+  height: 6vh;
+  padding: 1rem 0 1rem 0.4rem;
   display: flex;
-  justify-content: space-between;
-  /* border-bottom: 1px solid #b2bec3; */
 }
 
 .options {
-  width: 30%;
+  margin-left: 1rem;
+  width: 20%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.menu {
+  color: #fff;
+}
+.menu:hover {
+  color: #9de60b;
 }
 
 .options button {

@@ -40,7 +40,7 @@ const User = ({ user, image, showAccount }) => {
             aria-haspopup="true"
             onClick={handleClick}
           >
-            <MenuIcon />
+            <MenuIcon className="menu" />
           </button>
           <Menu
             id="simple-menu"

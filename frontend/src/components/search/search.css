@@ -41,9 +41,10 @@
   height: 4rem;
   font-size: 1rem;
   /* background: #fdfdfd; */
-  background: #f0f4f8;
+  background: #212121;
   border: none;
   outline: none;
+  color: #fff;
 }
 
 .result {
@@ -53,8 +54,7 @@
 
 .result-btn:hover {
   cursor: pointer;
-  /* background: #74b9ff; */
-  /* color: #fff; */
-  background: #fff;
+  background: #eceff1;
   font-weight: 600;
+  color: #000000;
 }

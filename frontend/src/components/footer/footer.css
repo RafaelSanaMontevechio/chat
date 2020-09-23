@@ -3,7 +3,16 @@
   height: 5vh;
   display: flex;
   align-items: center;
-  background: #535c68;
+  /* background: #263238; */
+  background: #1e272e;
   color: #fff;
   font-size: 0.7rem;
+}
+
+.ml-10 {
+  margin-left: 1rem;
+}
+
+.heart:hover {
+  color: #eb2f06;
 }
