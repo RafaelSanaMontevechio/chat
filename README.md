@@ -1,5 +1,6 @@
 # uaiChat
 
+[![HitCount](http://hits.dwyl.com/RafaelSanaMontevechio/chat.svg)](http://hits.dwyl.com/RafaelSanaMontevechio/chat)
 
 ## Início
 
