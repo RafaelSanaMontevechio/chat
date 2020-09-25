@@ -1,6 +1,7 @@
 import axios from 'axios';
+import data from '../utils/data.json';
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = data.BASE_URL;
 
 export const signIn = async (values, history) => {
   const res = await axios.post(`${BASE_URL}/login`, values);

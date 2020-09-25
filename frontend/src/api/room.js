@@ -2,7 +2,9 @@ import axios from 'axios';
 
 import { getTokenLocalStorage } from './user';
 
-const BASE_URL = 'http://localhost:3001';
+import data from '../utils/data.json';
+
+const BASE_URL = data.BASE_URL;
 
 const getToken = () => {
   const token = getTokenLocalStorage();
