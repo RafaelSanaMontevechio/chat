@@ -105,7 +105,7 @@ export default {
       const { roomId } = req.params;
       const options = {
         page: parseInt(req.query.page) || 0,
-        limit: parseInt(req.query.limit) || 50,
+        limit: parseInt(req.query.limit) || 150,
       };
       const conversation = await ChatMessageModel.getConversationByRoomId(
         roomId,
