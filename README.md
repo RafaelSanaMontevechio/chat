@@ -48,5 +48,5 @@ yarn start
 
 ## Author:
 
-* **Rafael Sana Montevechio - [LinkedIn](www.linkedin.com/in/RafaelSanaMontevechio)
+* **Rafael Sana Montevechio** - [LinkedIn](www.linkedin.com/in/RafaelSanaMontevechio)
 
