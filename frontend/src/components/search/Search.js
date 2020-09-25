@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import ScrollToBottom from 'react-scroll-to-bottom';
+import ReactShadowScroll from 'react-shadow-scroll';
 import CloseIcon from '@material-ui/icons/Close';
 
 import { getUsersByName } from '../../api/user';
@@ -55,9 +55,9 @@ const Search = ({ handleClick }) => {
         </form>
       </div>
 
-      <ScrollToBottom className="search__results">
+      <ReactShadowScroll className="search__results">
         {users.map(renderizaLinha)}
-      </ScrollToBottom>
+      </ReactShadowScroll>
     </div>
   );
 };

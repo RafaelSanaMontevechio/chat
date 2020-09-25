@@ -9,13 +9,14 @@
 }
 
 .search-input {
-  width: 99%;
+  width: 97%;
   height: 3rem;
   border: none;
   outline: none;
-  background: linear-gradient(45deg, #48dbfb 0%, #62186c 100%) no-repeat;
+  background: linear-gradient(45deg, #9de60b 0%, #6f58e2 100%) no-repeat;
   color: #fdfdfd !important;
   font-size: 1.4rem;
+  padding-left: 0.5rem;
 }
 
 .search-btn {

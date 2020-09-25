@@ -91,29 +91,18 @@
   flex: auto;
 }
 
-.list {
-  margin: 0;
-  padding: 1rem;
-}
-
-.list__item {
-  list-style: none;
-}
-
-.list__item.list__item--mine {
-  text-align: right;
-}
-
 /* --- styles --*/
 .container--mine {
   border: 1px solid transparent;
   width: 50%;
+  max-width: 50% !important;
   float: right;
   margin-right: 1.5rem;
 }
 
 .container--other {
   width: 50%;
+  max-width: 50% !important;
   display: flex;
   flex-direction: column;
   margin-left: 1.5rem;

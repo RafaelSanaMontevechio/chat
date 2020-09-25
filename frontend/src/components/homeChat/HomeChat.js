@@ -14,8 +14,9 @@ import HeaderChat from '../../components/headerChat';
 // import Message from '../../components/message';
 
 import './homeChat.css';
+import data from '../../utils/data.json';
 
-const socket = io('http://localhost:3001');
+const socket = io(data.BASE_URL);
 
 const HomeChat = ({ data, user, contactName, contactImage }) => {
   socket.emit('join', user._id);
