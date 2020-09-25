@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import ScrollToBottom from 'react-scroll-to-bottom';
+import ReactShadowScroll from 'react-shadow-scroll';
 
 import UserAvatar from '../avatar';
 
@@ -37,9 +37,9 @@ const Room = ({ func }) => {
   return (
     <div className="room-container">
       <span className="span">Chats recentes</span>
-      <ScrollToBottom className="rooms__actives">
+      <ReactShadowScroll className="rooms__actives">
         {result.map(renderizaLinha)}
-      </ScrollToBottom>
+      </ReactShadowScroll>
     </div>
   );
 };
