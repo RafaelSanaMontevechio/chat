@@ -6,6 +6,24 @@
 
  - These instructions will provide a copy of the project on your local machine for development and testing purposes.
  - Essas instruções fornecerão uma cópia do projeto em sua máquina local para fins de desenvolvimento e teste.
+ 
+ ## Pré-requisitos:
+
+Você precisa do NodeJS e do NPM instalado em sua máquina.
+
+#### no Backend
+- Acesse a pasta do backend e execute os comandos.
+```
+npm install
+npm start
+```
+
+#### no Frontend
+- Acesse a pasta do frontend e execute os comandos.
+```
+npm install
+yarn start
+```
 
 ## Construído com:
 
@@ -28,6 +46,7 @@
 * Axios
 * Yup
 
-### Pré-requisitos:
+## Author:
 
-Você precisa do NodeJS e do NPM instalado em sua máquina.
+* **Rafael Sana Montevechio - [LinkedIn](www.linkedin.com/in/RafaelSanaMontevechio)
+
