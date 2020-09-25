@@ -9,7 +9,7 @@
  
  ## Pré-requisitos:
 
-Você precisa do NodeJS e do NPM instalado em sua máquina.
+Você precisa do NodeJS, NPM e MongoDB instalado em sua máquina.
 
 #### no Backend
 - Acesse a pasta do backend e execute os comandos.
