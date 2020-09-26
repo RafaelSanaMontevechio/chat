@@ -9,7 +9,7 @@ import { signIn } from '../../api/user';
 
 import LoginHeader from '../../components/loginHeader';
 
-import './login.css';
+import styles from './styles.module.css';
 
 const Login = () => {
   const history = useHistory();
@@ -19,48 +19,54 @@ const Login = () => {
   };
 
   const validations = yup.object().shape({
-    email: yup.string().email().required('Informe seu e-mail'),
-    password: yup.string().min(4).required('informe sua senha'),
+    email: yup
+      .string()
+      .email('Informe um e-mail válido')
+      .required('Informe seu e-mail'),
+    password: yup
+      .string()
+      .min(6, 'Senha muito curta, deve ter no mínimo 6 caracteres.')
+      .required('Informe sua senha'),
   });
 
   return (
     <>
-      <div className="login-container">
+      <div>
         <LoginHeader />
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={handleSubmit}
           validationSchema={validations}
         >
-          <Form className="login">
-            <div className="login-group">
+          <Form className={styles.login}>
+            <div className={styles.login__group}>
               <Field
-                className="login-field"
+                className={styles.login__field}
                 type="email"
                 name="email"
                 placeholder="E-mail"
               />
               <ErrorMessage
-                className="login-error"
+                className={styles.login__error}
                 component="span"
                 name="email"
               />
             </div>
-            <div className="login-group">
+            <div className={styles.login__group}>
               <Field
-                className="login-field"
+                className={styles.login__field}
                 name="password"
                 type="password"
                 placeholder="Password"
               />
               <ErrorMessage
-                className="login-error"
+                className={styles.login__error}
                 component="span"
                 name="password"
               />
             </div>
-            <div className="login-btn">
-              <button className="btn" type="submit">
+            <div className={styles.login__btn}>
+              <button className={styles.btn} type="submit">
                 Login
               </button>
             </div>
