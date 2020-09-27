@@ -1,0 +1,65 @@
+.register {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.register__group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__field {
+  border: none;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fdfdfd;
+  margin-top: 1rem;
+  width: 60%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  transition: all 0.1s linear;
+}
+
+.register__field:focus {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.register__error {
+  margin-top: 3px;
+  color: #ff8080;
+  width: 60%;
+  text-transform: uppercase;
+}
+
+.register__btn {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background: #00cc99;
+  color: #fdfdfd;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 0.9rem;
+  margin-top: 2rem;
+  width: 65%;
+}
+
+.btn:hover {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

@@ -9,7 +9,7 @@ import LoginHeader from '../../components/loginHeader';
 
 import { signUp } from '../../api/user';
 
-import './register.css';
+import styles from './styles.module.css';
 
 const Register = () => {
   const history = useHistory();
@@ -24,81 +24,81 @@ const Register = () => {
     email: yup.string().email().required('Informe seu e-mail'),
     password: yup
       .string()
-      .min(6, 'A senha muito curta, deve ter no mínimo 6 caracteres.')
+      .min(6, 'Senha muito curta, deve ter no mínimo 6 caracteres.')
       .required('Informe uma senha')
       .matches(
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/,
-        'A senha deve conter A a 1 @'
+        'A senha deve conter, uma letra maiúscula, uma minúscula, um número e um caracter especial'
       ),
   });
 
   return (
     <>
-      <div className="login-container">
+      <div>
         <LoginHeader />
         <Formik
           initialValues={{ name: '', lastName: '', email: '', password: '' }}
           onSubmit={handleSubmit}
           validationSchema={validations}
         >
-          <Form className="login">
-            <div className="login-group">
+          <Form className={styles.register}>
+            <div className={styles.register__group}>
               <Field
-                className="login-field"
+                className={styles.register__field}
                 name="name"
                 type="text"
                 placeholder="Name"
               />
               <ErrorMessage
-                className="login-error"
+                className={styles.register__error}
                 component="span"
                 name="name"
               />
             </div>
 
-            <div className="login-group">
+            <div className={styles.register__group}>
               <Field
-                className="login-field"
+                className={styles.register__field}
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
               />
               <ErrorMessage
-                className="login-error"
+                className={styles.register__error}
                 component="span"
                 name="lastName"
               />
             </div>
 
-            <div className="login-group">
+            <div className={styles.register__group}>
               <Field
-                className="login-field"
+                className={styles.register__field}
                 name="email"
                 type="email"
                 placeholder="E-mail"
               />
               <ErrorMessage
-                className="login-error"
+                className={styles.register__error}
                 component="span"
                 name="email"
               />
             </div>
-            <div className="login-group">
+            <div className={styles.register__group}>
               <Field
-                className="login-field"
+                className={styles.register__field}
                 name="password"
                 type="password"
                 placeholder="Password"
               />
               <ErrorMessage
-                className="login-error"
+                className={styles.register__error}
                 component="span"
                 name="password"
               />
             </div>
-            <div className="login-btn">
-              <button className="btn" type="submit">
-                Sign Up
+            <div className={styles.register__btn}>
+              <button className={styles.btn} type="submit">
+                Salvar
               </button>
             </div>
           </Form>
