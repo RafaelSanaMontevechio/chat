@@ -19,10 +19,17 @@ const Register = () => {
   };
 
   const validations = yup.object().shape({
-    name: yup.string().required(),
-    lastName: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().min(4).required(),
+    name: yup.string().required('Informe seu nome'),
+    lastName: yup.string().required('Informe seu sobrenome'),
+    email: yup.string().email().required('Informe seu e-mail'),
+    password: yup
+      .string()
+      .min(6, 'A senha muito curta, deve ter no mínimo 6 caracteres.')
+      .required('Informe uma senha')
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/,
+        'A senha deve conter A a 1 @'
+      ),
   });
 
   return (
