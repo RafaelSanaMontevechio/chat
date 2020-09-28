@@ -10,7 +10,8 @@ import UserAvatar from '../avatar';
 
 import { signOut } from '../../api/user';
 
-import './user.css';
+// import './user.css';
+import styles from './styles.module.css';
 
 const User = ({ user, image, showAccount }) => {
   const history = useHistory();
@@ -31,31 +32,31 @@ const User = ({ user, image, showAccount }) => {
 
   return (
     <>
-      <div className="user-container">
+      <div className="container flex p-2">
         <UserAvatar userName={user.firstName} image={image} />
-        <div className="options">
-          <button
-            type="button"
-            aria-controls="simple-menu"
-            aria-haspopup="true"
-            onClick={handleClick}
-          >
-            <MenuIcon className="menu" />
-          </button>
-          <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={account}>My account</MenuItem>
-            <Divider variant="middle" />
-            <MenuItem onClick={() => signOut(history)}>
-              <span className="logout">Logout</span>
-            </MenuItem>
-          </Menu>
-        </div>
+
+        <button
+          className="focus:outline-none"
+          type="button"
+          aria-controls="simple-menu"
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
+          <MenuIcon className="border-none outline-nome" />
+        </button>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={account}>My account</MenuItem>
+          <Divider variant="middle" />
+          <MenuItem onClick={() => signOut(history)}>
+            <span className="logout">Logout</span>
+          </MenuItem>
+        </Menu>
       </div>
     </>
   );

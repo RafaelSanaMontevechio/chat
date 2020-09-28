@@ -1,4 +1,12 @@
-.user-container {
+/* .btn__menu {
+  margin-right: 0.1rem;
+  border: none;
+  border: 2px solid white;
+  outline: none;
+  background: transparent;
+} */
+
+/* .user-container {
   width: 100%;
   height: 6vh;
   padding: 1rem 0 1rem 0.4rem;
@@ -20,12 +28,7 @@
   color: #9de60b;
 }
 
-.options button {
-  margin-right: 0.1rem;
-  border: none;
-  outline: none;
-  background: transparent;
-}
+
 
 .options button:hover {
   cursor: pointer;
@@ -38,4 +41,4 @@
 
 .logout {
   color: red;
-}
+} */
