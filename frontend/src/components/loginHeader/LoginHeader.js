@@ -1,19 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './loginHeader.css';
+import styles from './styles.module.css';
 
 const LoginHeader = () => {
   return (
-    <div className="login-header">
-      <div className="login-options">
+    <div className={styles.header}>
+      <div className={styles.header__options}>
         <span>
-          <NavLink className="link" activeClassName="active" to="/login">
+          <NavLink
+            className={styles.link}
+            activeClassName={styles.active}
+            to="/login"
+          >
             Login
           </NavLink>
         </span>
-        <span className="mf-5">
-          <NavLink className="link" activeClassName="active" to="/register">
+        <span className={styles.mf5}>
+          <NavLink
+            className={styles.link}
+            activeClassName={styles.active}
+            to="/register"
+          >
             Cadastrar
           </NavLink>
         </span>
