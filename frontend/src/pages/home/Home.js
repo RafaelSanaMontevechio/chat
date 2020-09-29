@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import SearchIcon from '@material-ui/icons/Search';
-import GroupAddRoundedIcon from '@material-ui/icons/GroupAddRounded';
-import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
-
 import { getUserLocalStorage } from '../../api/user';
 
 import User from '../../components/user';
@@ -12,8 +8,9 @@ import Search from '../../components/search';
 import HomeChat from '../../components/homeChat';
 import Account from '../../components/account';
 import Footer from '../../components/footer';
+import Buttons from '../../components/buttons';
 
-import './home.css';
+import styles from './styles.module.css';
 
 const Home = () => {
   const [user, setUser] = useState([]);
@@ -58,25 +55,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="home-container">
-        <div className="home-details">
+      <div className={styles.main}>
+        <div className="w-1/4 p-2">
           <User user={user} image={image} showAccount={showAccount} />
           {!show ? (
-            <div className="buttons">
-              <button className="buttons__btn" onClick={setDataNull}>
-                <HomeRoundedIcon className="icons" />
-              </button>
-              <button
-                className="buttons__btn"
-                type="input"
-                onClick={showSearch}
-              >
-                <SearchIcon className="icons" />
-              </button>
-              <button className="buttons__btn">
-                <GroupAddRoundedIcon className="icons" />
-              </button>
-            </div>
+            <Buttons showSearch={showSearch} setRommIdNull={setDataNull}/>
           ) : null}
 
           {show ? (
@@ -85,7 +68,7 @@ const Home = () => {
             <Room user={user} image={image} func={getRoomId} />
           )}
         </div>
-        <div className="home-chats">
+        <div className="w-3/4 py-2 mr-2">
           {!showAccountComponent ? (
             <HomeChat
               data={roomId}

@@ -6,7 +6,7 @@ import UserAvatar from '../avatar';
 
 import { getRooms } from '../../api/room';
 
-import './room.css';
+import styles from './styles.module.css';
 
 const Room = ({ func }) => {
   const [result, setResult] = useState([]);
@@ -24,10 +24,10 @@ const Room = ({ func }) => {
     return (
       <button
         key={element.roomId}
-        className="result-btn"
+        className="flex flex-col"
         onClick={() => func(element.roomId, element.contact, element.image)}
       >
-        <div className="result">
+        <div className="">
           <UserAvatar userName={element.contact} image={element.image} />
         </div>
       </button>
@@ -35,12 +35,16 @@ const Room = ({ func }) => {
   };
 
   return (
-    <div className="room-container">
-      <span className="span">Chats recentes</span>
-      <ReactShadowScroll className="rooms__actives">
-        {result.map(renderizaLinha)}
-      </ReactShadowScroll>
-    </div>
+    <>
+      <div  className={styles.rooms}>
+        <span className="">Chats recentes</span>
+        <div className={styles.rooms__actives}>
+          <ReactShadowScroll className="">
+            {result.map(renderizaLinha)}
+          </ReactShadowScroll>
+        </div>
+      </div>
+    </>
   );
 };
 

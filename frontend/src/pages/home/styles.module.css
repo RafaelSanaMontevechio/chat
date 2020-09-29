@@ -1,4 +1,10 @@
-.home-container {
+.main{
+  display: flex;
+  height: 95vh;
+  background: #e2e8f0;
+}
+
+/* .home-container {
   display: flex;
   background: #eceff1;
 }
@@ -50,4 +56,4 @@
 .home-chats {
   width: 78%;
   height: 95vh;
-}
+} */

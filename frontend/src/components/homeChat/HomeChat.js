@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import SendSharpIcon from '@material-ui/icons/SendSharp';
-import { ErrorMessage, Formik, Form, Field } from 'formik';
-import * as yup from 'yup';
+
+
 import uuid from 'uuid/v4';
 
 import io from 'socket.io-client';
+
+import FormMessage from '../formMessage';
 
 import { getConversationByRoomId } from '../../api/room';
 
@@ -53,25 +54,20 @@ const HomeChat = ({ data, user, contactName, contactImage }) => {
     resetForm({ values: '' });
   };
 
-  const validations = yup.object().shape({
-    message: yup.string().required(),
-  });
 
   const showmMessage = (message) => {
     return (
       <div
         key={message.messageId}
-        className={`container--${
-          message.postedByUserId === user._id ? 'mine' : 'other'
-        }`}
+        className={`container--${message.postedByUserId === user._id ? 'mine' : 'other'
+          }`}
       >
         {message.postedByUserId !== user._id ? (
           <span className="sender">{message.postedByUserName}</span>
         ) : null}
         <span
-          className={`message message--${
-            message.postedByUserId === user._id ? 'mine' : 'other'
-          }`}
+          className={`message message--${message.postedByUserId === user._id ? 'mine' : 'other'
+            }`}
         >
           {message.message}
         </span>
@@ -80,49 +76,22 @@ const HomeChat = ({ data, user, contactName, contactImage }) => {
   };
 
   return (
-    <div className="home-chat-container">
+    <div>
       {!data ? (
         <Welcome user={user} />
       ) : (
-        <>
-          <div className="header-home-chat">
+          <>
             <HeaderChat contactName={contactName} contactImage={contactImage} />
-          </div>
-          <div className="messages-home-chat">
-            <ScrollToBottom className="messages">
-              {!messages ? <span> aguarde</span> : messages.map(showmMessage)}
-            </ScrollToBottom>
-          </div>
-          <div className="input-home-chat">
-            <Formik
-              initialValues={{ message: '' }}
-              onSubmit={handleFormSubmit}
-              validationSchema={validations}
-            >
-              <Form className="form-message">
-                <div className="div-form-message">
-                  <Field
-                    className="message-field"
-                    type="text"
-                    name="message"
-                    placeholder="Message"
-                  />
-                  <ErrorMessage
-                    className="message-error"
-                    component="span"
-                    name="message"
-                  />
-                </div>
-                <div className="send-btn">
-                  <button className="send" type="submit">
-                    <SendSharpIcon />
-                  </button>
-                </div>
-              </Form>
-            </Formik>
-          </div>
-        </>
-      )}
+
+            <div className="messages-home-chat">
+              <ScrollToBottom className="messages">
+                {!messages ? <span> aguarde</span> : messages.map(showmMessage)}
+              </ScrollToBottom>
+            </div>
+
+            <FormMessage handleFormSubmit={handleFormSubmit} />
+          </>
+        )}
     </div>
   );
 };

@@ -32,7 +32,7 @@ const User = ({ user, image, showAccount }) => {
 
   return (
     <>
-      <div className="container flex p-2">
+      <div className="flex p-2 bg-gray-700 mb-2 rounded-md shadow-lg">
         <UserAvatar userName={user.firstName} image={image} />
 
         <button
@@ -42,7 +42,7 @@ const User = ({ user, image, showAccount }) => {
           aria-haspopup="true"
           onClick={handleClick}
         >
-          <MenuIcon className="border-none outline-nome" />
+          <MenuIcon className="focus:outline-none" />
         </button>
         <Menu
           id="simple-menu"
