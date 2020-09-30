@@ -24,7 +24,7 @@ const Room = ({ func }) => {
     return (
       <button
         key={element.roomId}
-        className="flex flex-col"
+        className="w-full focus:outline-none flex flex-col px-2 hover:bg-gray-300"
         onClick={() => func(element.roomId, element.contact, element.image)}
       >
         <div className="">
@@ -37,7 +37,9 @@ const Room = ({ func }) => {
   return (
     <>
       <div  className={styles.rooms}>
-        <span className="">Chats recentes</span>
+       <div className="w-full p-2 text-gray-600 text-sm shadow-md">
+       <span >Chats</span>
+       </div>
         <div className={styles.rooms__actives}>
           <ReactShadowScroll className="">
             {result.map(renderizaLinha)}

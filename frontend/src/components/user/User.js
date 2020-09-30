@@ -10,9 +10,6 @@ import UserAvatar from '../avatar';
 
 import { signOut } from '../../api/user';
 
-// import './user.css';
-import styles from './styles.module.css';
-
 const User = ({ user, image, showAccount }) => {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -32,17 +29,17 @@ const User = ({ user, image, showAccount }) => {
 
   return (
     <>
-      <div className="flex p-2 bg-gray-700 mb-2 rounded-md shadow-lg">
+      <div className="flex flex-shrink p-2 bg-gray-700 text-white mb-2 rounded-md shadow-lg">
         <UserAvatar userName={user.firstName} image={image} />
 
         <button
-          className="focus:outline-none"
+          className="focus:outline-none flex items-center ml-16"
           type="button"
           aria-controls="simple-menu"
           aria-haspopup="true"
           onClick={handleClick}
         >
-          <MenuIcon className="focus:outline-none" />
+          <MenuIcon className="focus:outline-none  hover:text-green-600" />
         </button>
         <Menu
           id="simple-menu"
