@@ -59,7 +59,7 @@ const Home = () => {
         <div className="w-1/4 p-2">
           <User user={user} image={image} showAccount={showAccount} />
           {!show ? (
-            <Buttons showSearch={showSearch} setRommIdNull={setDataNull}/>
+            <Buttons showSearch={showSearch} setRoomIdNull={setDataNull} />
           ) : null}
 
           {show ? (
